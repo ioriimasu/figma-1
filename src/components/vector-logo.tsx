@@ -1,5 +1,6 @@
-import React from 'react';
-import { motion } from 'motion/react';
+"use client"
+
+import { motion } from 'framer-motion'
 
 export function VectorLogo() {
   return (
@@ -49,13 +50,14 @@ export function VectorLogo() {
         {/* Letter S stylized */}
         <motion.path
           d="M15 14C15 12 16.5 11 18 11C19.5 11 21 12 21 14C21 16 19.5 17 18 17C16.5 17 15 18 15 20C15 22 16.5 23 18 23C19.5 23 21 22 21 20"
-          stroke="#ffffff"
+          stroke="currentColor"
           strokeWidth="1.5"
           fill="none"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 2, repeat: Infinity }}
+          className="text-foreground"
         />
         
         <defs>
@@ -81,9 +83,9 @@ export function VectorLogo() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <span className="text-white text-xl font-medium">saaed</span>
+        <span className="text-foreground text-xl font-medium">saaed</span>
         <span className="text-[#4CAF50] text-xl font-medium">imam</span>
       </motion.div>
     </motion.div>
-  );
+  )
 }
