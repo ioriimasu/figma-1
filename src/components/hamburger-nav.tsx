@@ -26,35 +26,63 @@ export function HamburgerNav() {
       </button>
 
       {open && (
-        <nav className="nav-pop absolute right-0 mt-3 w-[230px] rounded-lg bg-black/55 ring-1 ring-white/15 backdrop-blur-lg p-2">
-          <span className="pointer" aria-hidden />
+        <>
+          {/* Mobile overlay */}
+          <div 
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+            onClick={() => setOpen(false)}
+          />
+          
+          <nav className="nav-pop absolute right-0 mt-3 w-[230px] rounded-lg bg-black/55 ring-1 ring-white/15 backdrop-blur-lg p-2 z-50">
+            <span className="pointer" aria-hidden />
 
-          <ul className="grid grid-cols-4 gap-2">
-            <GlitchTooltip text="The page you're already on, but sure, click again.">
-              <a href="#hero" className="glitch nav-link" data-text="H0m3? R3@lly?">
-                <Home className="h-6 w-6 text-white nav-icon" />
-              </a>
-            </GlitchTooltip>
+            <ul className="grid grid-cols-4 gap-2">
+              <GlitchTooltip text="The page you're already on, but sure, click again.">
+                <a 
+                  href="#hero" 
+                  className="glitch nav-link" 
+                  data-text="H0m3? R3@lly?"
+                  onClick={() => setOpen(false)}
+                >
+                  <Home className="h-6 w-6 text-white nav-icon" />
+                </a>
+              </GlitchTooltip>
 
-            <GlitchTooltip text="Where I pretend to be humble and you pretend to care.">
-              <a href="#about" className="glitch nav-link" data-text="Ab0ut: Th3 P@rt Y0u Sk!p">
-                <User className="h-6 w-6 text-white nav-icon" />
-              </a>
-            </GlitchTooltip>
+              <GlitchTooltip text="Where I pretend to be humble and you pretend to care.">
+                <a 
+                  href="#about" 
+                  className="glitch nav-link" 
+                  data-text="Ab0ut: Th3 P@rt Y0u Sk!p"
+                  onClick={() => setOpen(false)}
+                >
+                  <User className="h-6 w-6 text-white nav-icon" />
+                </a>
+              </GlitchTooltip>
 
-            <GlitchTooltip text="Actual things that shipped, not just screenshots.">
-              <a href="#projects" className="glitch nav-link" data-text="Pr0j3ct$: N0t Jµ$t Id3@$">
-                <Folder className="h-6 w-6 text-white nav-icon" />
-              </a>
-            </GlitchTooltip>
+              <GlitchTooltip text="Actual things that shipped, not just screenshots.">
+                <a 
+                  href="#projects" 
+                  className="glitch nav-link" 
+                  data-text="Pr0j3ct$: N0t Jµ$t Id3@$"
+                  onClick={() => setOpen(false)}
+                >
+                  <Folder className="h-6 w-6 text-white nav-icon" />
+                </a>
+              </GlitchTooltip>
 
-            <GlitchTooltip text="Your inbox will thank you. Eventually.">
-              <a href="#contact" className="glitch nav-link" data-text="C0nt@ct: $umm0n Th3 C0d3 Gr3ml!n">
-                <Mail className="h-6 w-6 text-white nav-icon" />
-              </a>
-            </GlitchTooltip>
-          </ul>
-        </nav>
+              <GlitchTooltip text="Your inbox will thank you. Eventually.">
+                <a 
+                  href="#contact" 
+                  className="glitch nav-link" 
+                  data-text="C0nt@ct: $umm0n Th3 C0d3 Gr3ml!n"
+                  onClick={() => setOpen(false)}
+                >
+                  <Mail className="h-6 w-6 text-white nav-icon" />
+                </a>
+              </GlitchTooltip>
+            </ul>
+          </nav>
+        </>
       )}
     </div>
   );
