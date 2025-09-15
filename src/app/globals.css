@@ -116,3 +116,173 @@ html {
 .parallax-base {
   transform: translateZ(0);
 }
+
+/* ============================
+   GLITCH ANIMATIONS & STYLES
+   ============================ */
+
+/* Glitch text animation */
+@keyframes glitchy {
+  0%   { text-shadow: 2px 0 #0ff, -2px 0 #f0f; }
+  20%  { text-shadow: -2px 0 #0ff, 2px 0 #f0f; }
+  40%  { text-shadow: 3px 0 #0ff, -3px 0 #f0f; }
+  60%  { text-shadow: -3px 0 #0ff, 3px 0 #f0f; }
+  80%  { text-shadow: 1px 0 #0ff, -1px 0 #f0f; }
+  100% { text-shadow: none; }
+}
+
+.glitch {
+  position: relative;
+  animation: glitchy 1.3s infinite steps(2, end);
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch-1 0.5s infinite;
+  color: #0ff;
+  z-index: -1;
+}
+
+.glitch::after {
+  animation: glitch-2 0.5s infinite;
+  color: #f0f;
+  z-index: -2;
+}
+
+@keyframes glitch-1 {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-2 {
+  0% { transform: translate(0); }
+  20% { transform: translate(2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, 2px); }
+  80% { transform: translate(-2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.animate-glitch { 
+  animation: glitchy 1.3s infinite steps(2, end); 
+}
+
+/* CTA Button base style */
+.cta-btn {
+  @apply inline-block rounded-md px-6 py-3 font-semibold text-white bg-green-500/90
+         ring-1 ring-green-400/40 backdrop-blur hover:bg-green-500 transition;
+}
+
+/* ============================
+   HAMBURGER NAV w/ TOOLTIP
+   ============================ */
+
+/* Nav popout panel + pointer */
+.nav-pop { 
+  position: absolute; 
+}
+
+.nav-pop .pointer {
+  position: absolute; 
+  right: 14px; 
+  top: -10px;
+  width: 0; 
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgba(0,0,0,.55);
+  filter: blur(.2px);
+}
+
+/* Hamburger lines */
+.burger,
+.burger::before,
+.burger::after {
+  display: block; 
+  width: 22px; 
+  height: 2px; 
+  background: white; 
+  position: relative;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.burger::before,
+.burger::after {
+  content: ""; 
+  position: absolute; 
+  left: 0;
+}
+
+.burger::before { top: -6px; }
+.burger::after { top: 6px; }
+
+/* Nav link styles */
+.nav-link {
+  @apply flex items-center justify-center p-3 rounded-md hover:bg-white/10 transition-colors;
+}
+
+/* Tooltip pointer */
+.glitch-pointer {
+  position: absolute;
+  top: 100%; 
+  left: 50%; 
+  transform: translateX(-50%);
+  width: 0; 
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid rgba(0, 0, 0, 0.7);
+  animation: glitch-pointer-flicker 1.2s infinite steps(2, end),
+             glitch-pointer-color 2.5s infinite linear;
+}
+
+@keyframes glitch-pointer-flicker {
+  0%   { transform: translateX(-50%) translateY(0); opacity: 1; }
+  25%  { transform: translateX(-49%) translateY(1px); opacity: .8; }
+  50%  { transform: translateX(-51%) translateY(-1px); opacity: .6; }
+  75%  { transform: translateX(-50%) translateY(0); opacity: .9; }
+  100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+@keyframes glitch-pointer-color {
+  0%   { filter: drop-shadow(0 0 2px #0ff) drop-shadow(0 0 1px #f0f); }
+  25%  { filter: drop-shadow(0 0 2px #0f0) drop-shadow(0 0 1px #ff0); }
+  50%  { filter: drop-shadow(0 0 2px #f0f) drop-shadow(0 0 1px #0ff); }
+  75%  { filter: drop-shadow(0 0 2px #ff0) drop-shadow(0 0 1px #0f0); }
+  100% { filter: drop-shadow(0 0 2px #0ff) drop-shadow(0 0 1px #f0f); }
+}
+
+/* Nav icons buzzing CRT style */
+.nav-icon {
+  animation: icon-glitch-color 2.8s infinite linear,
+             icon-glitch-flicker 1.2s infinite steps(2, end);
+}
+
+@keyframes icon-glitch-color {
+  0%   { filter: drop-shadow(0 0 2px #0ff) drop-shadow(0 0 1px #f0f); }
+  25%  { filter: drop-shadow(0 0 2px #0f0) drop-shadow(0 0 1px #ff0); }
+  50%  { filter: drop-shadow(0 0 2px #f0f) drop-shadow(0 0 1px #0ff); }
+  75%  { filter: drop-shadow(0 0 2px #ff0) drop-shadow(0 0 1px #0f0); }
+  100% { filter: drop-shadow(0 0 2px #0ff) drop-shadow(0 0 1px #f0f); }
+}
+
+@keyframes icon-glitch-flicker {
+  0%, 100% { transform: translate(0,0); opacity: 1; }
+  20% { transform: translate(-1px, 1px); opacity: 0.85; }
+  40% { transform: translate(1px, -1px); opacity: 0.7; }
+  60% { transform: translate(-1px, 0px); opacity: 0.9; }
+  80% { transform: translate(1px, 0px); opacity: 0.8; }
+}

@@ -77,7 +77,9 @@ export function AboutSection() {
           >
             <Card className="p-8 text-center">
               <div className="relative w-32 h-32 mx-auto mb-6">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#4CAF50] to-[#66BB6A] flex items-center justify-center text-white text-4xl font-bold">
+                {/* Profile image placeholder - use src/assets/profile for actual image */}
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-[#4CAF50] to-[#66BB6A] flex items-center justify-center text-white text-4xl font-bold overflow-hidden">
+                  {/* Replace with actual image: <Image src="/src/assets/profile/saaed-imam.jpg" alt="Saaed Imam" className="w-full h-full object-cover" /> */}
                   SI
                 </div>
                 <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-br from-[#4CAF50] to-[#66BB6A] rounded-full flex items-center justify-center">
