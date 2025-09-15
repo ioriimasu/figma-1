@@ -1,1 +1,5 @@
-{}
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/sitemap/route": "app/api/sitemap/route.js",
+  "/page": "app/page.js"
+}
